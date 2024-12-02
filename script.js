@@ -112,7 +112,7 @@ knihy.forEach(item => {
     <p>Cena: ${item.cena}, Jazyk: ${item.jazyk}</p>
     `
 })
-*/
+
 
 const ceskaJmena = [
     "Jan", "Petr", "Jakub", "Tomáš", "Michal",
@@ -131,4 +131,47 @@ const emails = ceskaJmena.map(item => `${item}@czechitas.cz`)
 
 console.log(emails)
 
+*/
 
+
+
+const selectSmiley = (event) => {
+    event.target.classList.add('btn-smiley--selected');
+};
+
+const btns = document.querySelectorAll(".btn-smiley")
+
+btns.forEach(btn => { btn.addEventListener("click", selectSmiley) })
+
+// Jeste kratsi varianta - document.querySelectorAll(".btn-smiley").forEach(btn => { btn.addEventListener("click", selectSmiley) })
+
+
+
+
+
+3.
+const napoje = [
+    { nazev: 'Pivo', cena: 12, skladem: true },
+    { nazev: 'Rum', cena: 120, skladem: false },
+    { nazev: 'Víno', cena: 85, skladem: true },
+    { nazev: 'Whisky', cena: 450, skladem: true },
+    { nazev: 'Vodka', cena: 280, skladem: false },
+    { nazev: 'Becherovka', cena: 210, skladem: true },
+    { nazev: 'Kofola', cena: 40, skladem: true },
+    { nazev: 'Voda', cena: 15, skladem: false },
+]
+
+// ["Pivo", "Rum", "Vino"]
+
+const pojmenovaniNapoju = napoje.map(polozka => polozka.nazev)
+const pojmenovaniNapoju2 = napoje.map(function(polozka) { // { nazev: 'Pivo', cena: 12, skladem: true }
+    // if(polozka.skladem) {
+    //     return polozka.nazev
+    // } else {
+    //     return "Neni skladem"
+    // }
+
+    return polozka.skladem ? polozka.nazev : "Neni skladem"
+})
+
+console.log(pojmenovaniNapoju)
